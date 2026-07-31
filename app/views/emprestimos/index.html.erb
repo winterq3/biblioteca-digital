@@ -1,16 +1,22 @@
-<p style="color: green"><%= notice %></p>
+<% content_for :title, "Empréstimos" %>
 
-<% content_for :title, "Emprestimos" %>
-
-<h1>Emprestimos</h1>
-
-<div id="emprestimos">
-  <% @emprestimos.each do |emprestimo| %>
-    <%= render emprestimo %>
-    <p>
-      <%= link_to "Show this emprestimo", emprestimo %>
-    </p>
-  <% end %>
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <h1>Empréstimos</h1>
+  <%= link_to "+ Novo Empréstimo", new_emprestimo_path, class: "btn btn-primary" %>
 </div>
 
-<%= link_to "New emprestimo", new_emprestimo_path %>
+<div id="emprestimos" class="row row-cols-1 row-cols-md-3 g-4">
+  <% @emprestimos.each do |emprestimo| %>
+    <div class="col">
+      <div class="card h-100">
+        <div class="card-body">
+          <%= render emprestimo %>
+        </div>
+        <div class="card-footer d-flex gap-2">
+          <%= link_to "Editar", edit_emprestimo_path(emprestimo), class: "btn btn-sm btn-outline-secondary" %>
+          <%= button_to "Excluir", emprestimo, method: :delete, data: { turbo_confirm: "Tem certeza?" }, class: "btn btn-sm btn-outline-danger" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

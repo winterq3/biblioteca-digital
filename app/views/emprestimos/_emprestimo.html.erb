@@ -1,27 +1,18 @@
 <div id="<%= dom_id emprestimo %>">
-  <div>
-    <strong>Livro:</strong>
-    <%= emprestimo.livro_id %>
-  </div>
-
-  <div>
-    <strong>Nome leitor:</strong>
-    <%= emprestimo.nome_leitor %>
-  </div>
-
-  <div>
-    <strong>Data emprestimo:</strong>
-    <%= emprestimo.data_emprestimo %>
-  </div>
-
-  <div>
-    <strong>Data devolucao:</strong>
-    <%= emprestimo.data_devolucao %>
-  </div>
-
-  <div>
-    <strong>Devolvido:</strong>
-    <%= emprestimo.devolvido %>
-  </div>
-
+  <h5 class="card-title"><%= emprestimo.livro.titulo %></h5>
+  <p class="mb-1"><strong>Leitor:</strong> <%= emprestimo.nome_leitor %></p>
+  <p class="mb-1"><strong>Emprestado em:</strong> <%= emprestimo.data_emprestimo&.strftime("%d/%m/%Y") %></p>
+  <p class="mb-1"><strong>Devolução prevista:</strong> <%= emprestimo.data_devolucao&.strftime("%d/%m/%Y") %></p>
+  <% if emprestimo.data_devolucao_real.present? %>
+    <p class="mb-1"><strong>Devolvido em:</strong> <%= emprestimo.data_devolucao_real.strftime("%d/%m/%Y") %></p>
+  <% end %>
+  <p class="mb-0">
+    <% if emprestimo.devolvido %>
+      <span class="badge bg-success">Devolvido</span>
+    <% elsif emprestimo.atrasado? %>
+      <span class="badge bg-danger">Atrasado</span>
+    <% else %>
+      <span class="badge bg-warning text-dark">Em aberto</span>
+    <% end %>
+  </p>
 </div>

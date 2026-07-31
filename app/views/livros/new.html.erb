@@ -1,11 +1,7 @@
-<% content_for :title, "New livro" %>
+<% content_for :title, "Novo Livro" %>
 
-<h1>New livro</h1>
+<h1>Novo Livro</h1>
 
 <%= render "form", livro: @livro %>
 
-<br>
-
-<div>
-  <%= link_to "Back to livros", livros_path %>
-</div>
+<%= link_to "← Voltar", livros_path, class: "btn btn-outline-secondary mt-3" %>

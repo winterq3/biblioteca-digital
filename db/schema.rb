@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_07_28_145239) do
+ActiveRecord::Schema[8.1].define(version: 2026_07_30_190145) do
   create_table "autors", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.string "nacionalidade"
@@ -21,6 +21,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_07_28_145239) do
   create_table "emprestimos", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.date "data_devolucao"
+    t.date "data_devolucao_real"
     t.date "data_emprestimo"
     t.boolean "devolvido"
     t.integer "livro_id", null: false

@@ -33,7 +33,7 @@ class LivrosControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should update livro" do
+  test "should Atualizar livro" do
     patch livro_url(@livro), params: { livro: { ano_publicacao: @livro.ano_publicacao, autor_id: @livro.autor_id, disponivel: @livro.disponivel, titulo: @livro.titulo } }
     assert_redirected_to livro_url(@livro)
   end

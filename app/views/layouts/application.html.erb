@@ -24,6 +24,31 @@
   </head>
 
   <body>
-    <%= yield %>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+      <div class="container">
+        <%= link_to "📚 Biblioteca Digital", root_path, class: "navbar-brand" %>
+        <div class="navbar-nav">
+          <%= link_to "Livros", livros_path, class: "nav-link text-white" %>
+          <%= link_to "Autores", autors_path, class: "nav-link text-white" %>
+          <%= link_to "Empréstimos", emprestimos_path, class: "nav-link text-white" %>
+          <% if user_signed_in? %>
+            <%= button_to "Sair", destroy_user_session_path, method: :delete, class: "nav-link text-white" %>
+          <% else %>
+            <%= link_to "Login", new_user_session_path, class: "nav-link text-white" %>
+          <% end %>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+      <% if notice %>
+        <div class="alert alert-success"><%= notice %></div>
+      <% end %>
+      <% if alert %>
+        <div class="alert alert-danger"><%= alert %></div>
+      <% end %>
+      
+      <%= yield %>
+    </div>  
   </body>
 </html>

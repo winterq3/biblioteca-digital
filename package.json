@@ -11,6 +11,7 @@
     "sass": "^1.77.0"
   },
   "scripts": {
-    "build:css": "sass ./app/assets/stylesheets/application.bootstrap.scss:./app/assets/builds/application.css --no-source-map --load-path=node_modules && postcss ./app/assets/builds/application.css --use=autoprefixer --output=./app/assets/builds/application.css"
+  "build:css": "sass ./app/assets/stylesheets/application.bootstrap.scss:./app/assets/builds/application.css --no-source-map --load-path=node_modules && postcss ./app/assets/builds/application.css --use=autoprefixer --output=./app/assets/builds/application.css",
+  "watch:css": "sass --watch ./app/assets/stylesheets/application.bootstrap.scss:./app/assets/builds/application.css --no-source-map --load-path=node_modules"
   }
 }

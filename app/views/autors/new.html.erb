@@ -1,11 +1,7 @@
-<% content_for :title, "New autor" %>
+<% content_for :title, "Novo Autor" %>
 
-<h1>New autor</h1>
+<h1>Novo Autor</h1>
 
 <%= render "form", autor: @autor %>
 
-<br>
-
-<div>
-  <%= link_to "Back to autors", autors_path %>
-</div>
+<%= link_to "← Voltar", autors_path, class: "btn btn-outline-secondary mt-3" %>

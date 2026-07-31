@@ -26,7 +26,7 @@ class AutorsController < ApplicationController
 
     respond_to do |format|
       if @autor.save
-        format.html { redirect_to @autor, notice: "Autor was successfully created." }
+        format.html { redirect_to @autor, notice: "Autor criado com sucesso." }
         format.json { render :show, status: :created, location: @autor }
       else
         format.html { render :new, status: :unprocessable_content }
@@ -39,7 +39,7 @@ class AutorsController < ApplicationController
   def update
     respond_to do |format|
       if @autor.update(autor_params)
-        format.html { redirect_to @autor, notice: "Autor was successfully updated.", status: :see_other }
+        format.html { redirect_to @autor, notice: "Autor atualizado com sucesso.", status: :see_other }
         format.json { render :show, status: :ok, location: @autor }
       else
         format.html { render :edit, status: :unprocessable_content }
@@ -53,7 +53,7 @@ class AutorsController < ApplicationController
     @autor.destroy!
 
     respond_to do |format|
-      format.html { redirect_to autors_path, notice: "Autor was successfully destroyed.", status: :see_other }
+      format.html { redirect_to autors_path, notice: "Autor excluído com sucesso.", status: :see_other }
       format.json { head :no_content }
     end
   end

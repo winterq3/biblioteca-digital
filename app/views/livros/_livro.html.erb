@@ -1,22 +1,12 @@
 <div id="<%= dom_id livro %>">
-  <div>
-    <strong>Titulo:</strong>
-    <%= livro.titulo %>
-  </div>
-
-  <div>
-    <strong>Ano publicacao:</strong>
-    <%= livro.ano_publicacao %>
-  </div>
-
-  <div>
-    <strong>Disponivel:</strong>
-    <%= livro.disponivel %>
-  </div>
-
-  <div>
-    <strong>Autor:</strong>
-    <%= livro.autor_id %>
-  </div>
-
+  <h5 class="card-title"><%= livro.titulo %></h5>
+  <p class="text-muted mb-1">por <%= livro.autor.nome %></p>
+  <p class="mb-1"><strong>Ano:</strong> <%= livro.ano_publicacao %></p>
+  <p class="mb-0">
+    <% if livro.disponivel %>
+      <span class="badge bg-success">Disponível</span>
+    <% else %>
+      <span class="badge bg-secondary">Indisponível</span>
+    <% end %>
+  </p>
 </div>

@@ -1,12 +1,8 @@
 <div id="<%= dom_id autor %>">
-  <div>
-    <strong>Nome:</strong>
-    <%= autor.nome %>
-  </div>
-
-  <div>
-    <strong>Nacionalidade:</strong>
-    <%= autor.nacionalidade %>
-  </div>
-
+  <h5 class="card-title"><%= autor.nome %></h5>
+  <p class="mb-1"><strong>Nacionalidade:</strong> <%= autor.nacionalidade %></p>
+  <p class="mb-0">
+    <span class="badge bg-info text-dark"><%= pluralize(autor.livros.count, "livro") %></span>
+    <%= link_to "Ver livros deste autor", livros_path(autor_id: autor.id), class: "small" %>
+  </p>
 </div>

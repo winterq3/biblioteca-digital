@@ -1,11 +1,7 @@
-<% content_for :title, "New emprestimo" %>
+<% content_for :title, "Novo Empréstimo" %>
 
-<h1>New emprestimo</h1>
+<h1>Novo Empréstimo</h1>
 
 <%= render "form", emprestimo: @emprestimo %>
 
-<br>
-
-<div>
-  <%= link_to "Back to emprestimos", emprestimos_path %>
-</div>
+<%= link_to "← Voltar", emprestimos_path, class: "btn btn-outline-secondary mt-3" %>

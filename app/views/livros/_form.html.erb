@@ -1,9 +1,8 @@
 <%= form_with(model: livro) do |form| %>
   <% if livro.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(livro.errors.count, "error") %> prohibited this livro from being saved:</h2>
-
-      <ul>
+    <div class="alert alert-danger">
+      <h2><%= pluralize(livro.errors.count, "erro") %> impediram este livro de ser salvo:</h2>
+      <ul class="mb-0">
         <% livro.errors.each do |error| %>
           <li><%= error.full_message %></li>
         <% end %>
@@ -11,27 +10,25 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :titulo, style: "display: block" %>
-    <%= form.text_field :titulo %>
+  <div class="mb-3">
+    <%= form.label :titulo, class: "form-label" %>
+    <%= form.text_field :titulo, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.label :ano_publicacao, style: "display: block" %>
-    <%= form.number_field :ano_publicacao %>
+  <div class="mb-3">
+    <%= form.label :ano_publicacao, "Ano de publicação", class: "form-label" %>
+    <%= form.number_field :ano_publicacao, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.label :disponivel, style: "display: block" %>
-    <%= form.checkbox :disponivel %>
+  <div class="form-check mb-3">
+    <%= form.checkbox :disponivel, class: "form-check-input" %>
+    <%= form.label :disponivel, "Disponível", class: "form-check-label" %>
   </div>
 
-  <div>
-    <%= form.label :autor_id, style: "display: block" %>
-    <%= form.text_field :autor_id %>
+  <div class="mb-3">
+    <%= form.label :autor_id, "Autor", class: "form-label" %>
+    <%= form.collection_select :autor_id, Autor.all, :id, :nome, { prompt: "Selecione um autor" }, { class: "form-select" } %>
   </div>
 
-  <div>
-    <%= form.submit %>
-  </div>
+  <%= form.submit livro.new_record? ? "Criar Livro" : "Atualizar Livro", class: "btn btn-primary" %>
 <% end %>
